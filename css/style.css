@@ -4,7 +4,7 @@ body {
     overflow: hidden;
 }
 
-a:link, a:visited  {
+a:link, a:visited {
     color: #ffffffa4;
     text-decoration: none;
     transition: color 0.5s;
@@ -18,7 +18,7 @@ a:hover {
 ::selection {
     color: #000000;
     background: #535353;
-  }
+}
 
 .main {
     display: flex;
@@ -28,6 +28,9 @@ a:hover {
     color: #ffffff;
     gap: 15px;
     margin-right: 85px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
 }
 
 .main img {
@@ -56,6 +59,8 @@ a:hover {
     to { opacity: 0; }
 }
 
+/* Removed .animate block to prevent double fade-in */
+/*
 .animate .main,
 .animate .main img,
 .animate .main a,
@@ -64,6 +69,11 @@ a:hover {
     animation: fadeIn 1.3s ease-in-out;
     opacity: 1;
     visibility: visible;
+}
+*/
+
+.main.fade-in {
+    animation: fadeIn 1s forwards;
 }
 
 #status-dot {
@@ -115,26 +125,23 @@ a:hover {
 }
 
 .hidden {
+    display: none !important;
     opacity: 0;
     visibility: hidden;
 }
 
-playback timings (ms):
-  captures_list: 0.607
-  exclusion.robots: 0.052
-  exclusion.robots.policy: 0.035
-  esindex: 0.012
-  cdx.remote: 58.942
-  LoadShardBlock: 145.318 (3)
-  PetaboxLoader3.datanode: 150.464 (4)
-  load_resource: 88.304
-  PetaboxLoader3.resolve: 69.984
-*/
-.lain-gif {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 300px;
-  z-index: 9999;
-  pointer-events: none;
+.lain-bg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+    transition: opacity 1.5s ease;
+}
+
+.lain-bg.visible {
+    opacity: 0.25;
 }

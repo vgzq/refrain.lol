@@ -1,7 +1,7 @@
 let lanyardDataCache = null;
 
 async function fetchLanyardData() {
-    const response = await fetch(`https://api.lanyard.rest/v1/users/984330364606636044`);
+    const response = await fetch(`https://api.lanyard.rest/v1/users/243022147293937666`);
     const data = await response.json();
     if (data.success) {
         lanyardDataCache = data.data;
@@ -10,7 +10,7 @@ async function fetchLanyardData() {
 
 function updateProfilePicture(discord_user) {
     const profilePictureElement = document.getElementById('pfp');
-    const newProfilePictureSrc = `https://cdn.discordapp.com/avatars/984330364606636044/${discord_user.avatar}.png`;
+    const newProfilePictureSrc = `https://cdn.discordapp.com/avatars/243022147293937666/${discord_user.avatar}.png`;
     
     const ogImage = document.querySelector('meta[property="og:image"]');
     if (ogImage) {
